@@ -1,10 +1,12 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from '@react-three/fiber'
 import Utilities from "./r3f-gist/utility/Utilities";
-import * as handTrack from 'handtrackjs'
+import HandTrack from "./r3f-gist/sensor/HandTrack";
 
 export default function App() {
     return <>
+        <HandTrack />
+        
         <Canvas
             shadows
             camera={{
