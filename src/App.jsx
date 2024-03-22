@@ -1,12 +1,16 @@
 import { OrbitControls } from "@react-three/drei";
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import Utilities from "./r3f-gist/utility/Utilities";
 import HandTrack from "./r3f-gist/sensor/HandTrack";
+import { useRef } from "react";
+import TrackUser from "./r3f-gist/sensor/TrackUser";
 
 export default function App() {
+    const tracker = useRef()
+
     return <>
-        <HandTrack />
-        
+        <HandTrack ref={tracker} />
+
         <Canvas
             shadows
             camera={{
@@ -27,6 +31,7 @@ export default function App() {
 
             <Utilities />
 
+            <TrackUser tracker={tracker} />
         </Canvas>
     </>
 }
